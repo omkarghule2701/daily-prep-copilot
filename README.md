@@ -19,6 +19,22 @@ Salesforce
 → Brief generation  
 → Daily digest
 
+## Architecture
+
+The system uses LangGraph to orchestrate a multi-step GTM workflow:
+
+1. Fetch CRM context from Salesforce
+2. Aggregate account-level meeting context
+3. Prioritize opportunities using deterministic scoring
+4. Generate AI-powered meeting briefs
+5. Produce a daily prep digest for sales reps
+
+Business-critical prioritization is rule-based for explainability, while LLMs are used for narrative generation and recommendations.
+
+## Workflow
+
+![LangGraph Workflow](langgraph.png)
+
 ## Run
 
 ```bash

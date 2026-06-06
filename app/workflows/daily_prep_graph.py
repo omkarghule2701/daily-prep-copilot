@@ -167,6 +167,13 @@ def build_graph():
 if __name__ == "__main__":
     app = build_graph()
 
+    png_data = app.get_graph().draw_mermaid_png()
+
+    with open("langgraph.png", "wb") as f:
+        f.write(png_data)
+
+    print("Saved langgraph.png")
+
     initial_state = {
         "opportunities": [],
         "tasks": [],
