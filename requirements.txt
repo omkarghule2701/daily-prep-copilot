@@ -1,0 +1,15 @@
+langgraph
+langchain
+langchain-openai
+openai
+
+simple-salesforce
+
+python-dotenv
+
+pydantic
+
+pandas
+
+jupyter
+ipykernel
