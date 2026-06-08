@@ -19,8 +19,6 @@ Salesforce
 → Brief generation  
 → Daily digest
 
-## Architecture
-
 The system uses LangGraph to orchestrate a multi-step GTM workflow:
 
 1. Fetch CRM context from Salesforce
