@@ -8,6 +8,7 @@ import os
 from app.prioritization import calculate_priority
 from app.briefing import generate_brief
 from app.llm_briefing import generate_llm_meeting_brief
+from app.email_sender import send_daily_digest_email
 
 load_dotenv()
 
@@ -128,8 +129,6 @@ def build_daily_digest(state: DailyPrepState):
             for meeting in meetings:
                 lines.append(f"- {meeting['Subject']}")
             lines.append("")
-
-        if i == 1:
             lines.append("### AI Meeting Brief")
             lines.append("")
             lines.append(generate_llm_meeting_brief(opp, meetings))
@@ -139,11 +138,14 @@ def build_daily_digest(state: DailyPrepState):
 
     with open("daily_digest.md", "w") as f:
         f.write(digest)
+        
+    send_daily_digest_email(digest)
 
     return {
         **state,
         "digest": digest
     }
+
 
 
 def build_graph():
